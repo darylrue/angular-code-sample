@@ -1,0 +1,22 @@
+<div class="routes-wrapper">
+  <div *ngIf="!dataReceived; else displayContent">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <ng-template #displayContent>
+    <div class="title">
+      Choose a route
+    </div>
+    <div class="content">
+      <div *ngFor="let route of routes" class="route-container link" [ngStyle]="{'border-color': '#' + route.color}"
+           (click)="navToStops(route.id)">
+        <div class="route-name route-item">{{route.longName}}</div>
+        <div class="route-desc route-item">{{route.description}}</div>
+        <div class="route-type route-item">{{route.type}}</div>
+        <div *ngFor="let direction of route.directionNames; let i = index" class="direction-dest-container route-item">
+          <div class="destination">{{route.directionDestinations[i]}}</div>
+          <div class="direction">({{direction}})</div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

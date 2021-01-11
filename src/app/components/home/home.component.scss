@@ -1,0 +1,68 @@
+@import "../mixins";
+
+.home-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.title {
+  margin-top: 30px;
+  font-size: 18px;
+
+  @include when-width(440px) {
+    font-size: 22px;
+  }
+  @include when-width(576px) {
+    font-size: 28px;
+  }
+  @include when-width(768px) {
+    font-size: 34px;
+  }
+  @include when-width(992px) {
+    font-size: 38px;
+  }
+}
+
+.content {
+  max-width: 700px;
+}
+
+.nav-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  margin-top: 20px;
+}
+
+.link {
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.link-label {
+  color: blue;
+  padding-top: 5px;
+
+  @include when-width(440px) {
+    font-size: 16px;
+  }
+  @include when-width(768px) {
+    font-size: 18px;
+  }
+}
+
+.icon {
+  width: 75%;
+  max-width: 180px;
+
+  img {
+    width: 100%;
+  }
+}
+
+
+
+

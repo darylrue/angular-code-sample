@@ -1,0 +1,33 @@
+<div class="stops-wrapper">
+  <div *ngIf="!dataReceived; else displayContent">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <ng-template #displayContent>
+    <div *ngIf="stops == null || stops.length === 0; else validData" class="no-data-msg">No data found</div>
+    <ng-template #validData>
+      <div class="title">
+        Choose a stop and a direction
+      </div>
+      <div class="route-name" [ngStyle]="{'color': color}">{{routeName}} route</div>
+      <div class="content">
+        <div *ngFor="let stop of stops" class="stop-container" [ngStyle]="{'border-color': color}">
+          <div class="stop-name stop-item">{{stop.name}}</div>
+          <div class="location stop-item">
+            <div class="stop-address-line1 stop-item">{{stop.addressLine1}}</div>
+            <div class="stop-address-line2 stop-item">{{stop.addressLine2}}</div>
+            <div class="geopoint stop-item">{{stop.latitude}}, {{stop.longitude}}</div>
+          </div>
+          <div class="wheelchair-boarding stop-item">
+            <img src="assets/img/handicap-icon.png" alt="wheelchair accessibility">
+            <div class="wheelchair-boarding-symbol" [ngStyle]="{'color': stop.wheelchairBoarding === 'Yes' ? 'green' : 'red'}">
+              {{stop.wheelchairBoardingSymbol}}
+            </div>
+          </div>
+          <div class="direction0 stop-item link" (click)="navToSchedule(stop.id, 0)">{{direction0}}</div>
+          <div class="direction1 stop-item link" (click)="navToSchedule(stop.id, 1)">{{direction1}}</div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>
+

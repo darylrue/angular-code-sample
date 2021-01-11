@@ -1,0 +1,25 @@
+<div class="schedule-wrapper">
+  <div *ngIf="!dataReceived; else displayContent">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <ng-template #displayContent>
+    <div *ngIf="routeName == null || direction == null || nextTime == null; else validData" class="no-data-msg">No data found</div>
+    <ng-template #validData>
+      <div class="title">Schedule</div>
+      <div class="route-info info-line" [ngStyle]="{'color': color}">{{routeName}} route</div>
+      <div class="stop-info info-line" [ngStyle]="{'color': color}">{{stopName}} - {{direction}}</div>
+      <div class="content">
+        <div class="next arrival">
+          <div class="action-label">{{nextLabel}}</div>
+          <div class="datetime date">{{nextDay}}</div>
+          <div class="datetime time">{{nextTime}}</div>
+        </div>
+        <div *ngIf="followingTime" class="following arrival">
+          <div class="action-label">{{followingLabel}}</div>
+          <div class="datetime date">{{followingDay}}</div>
+          <div class="datetime time">{{followingTime}}</div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

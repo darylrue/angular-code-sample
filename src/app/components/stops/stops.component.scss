@@ -1,0 +1,159 @@
+@import "../mixins";
+
+.stops-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.no-data-msg {
+  margin-top: 40px;
+  font-size: 30px;
+}
+
+.title {
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.route-name {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+@include when-width(440px) {
+  .title {
+    font-size: 22px;
+  }
+
+  .route-name {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+}
+
+@include when-width(576px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .route-name {
+    margin-top: 25px;
+    font-size: 22px;
+  }
+}
+
+@include when-width(768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .route-name {
+    margin-top: 30px;
+    font-size: 26px;
+  }
+}
+
+@include when-width(992px) {
+  .title {
+    font-size: 38px;
+  }
+
+  .route-name {
+    margin-top: 35px;
+    font-size: 30px;
+  }
+}
+
+.content {
+  max-width: 950px;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.stop-container {
+  margin-top: 30px;
+  text-align: left;
+  background-color: #f5f2f6;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+
+  @include when-width(992px) {
+    grid-template-columns: 275px 375px 100px 100px 100px;
+  }
+}
+
+.stop-item {
+  margin: 5px 10px;
+  white-space: nowrap;
+  font-size: 16px;
+  text-align: center;
+
+  @include when-width(992px) {
+    text-align: left;
+  }
+}
+
+.stop-name {
+  font-weight: bold;
+  font-size: 19px;
+
+  @include when-width(992px) {
+    grid-column: 1 / 2;
+  }
+}
+
+.location {
+  @include when-width(992px) {
+    grid-column: 2 / 3;
+  }
+}
+
+.geopoint {
+  font-size: 14px;
+  color: #555555;
+}
+
+.wheelchair-boarding {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  img {
+    width: 30px;
+  }
+
+  @include when-width(992px) {
+    grid-column: 3 / 4;
+  }
+}
+
+.wheelchair-boarding-symbol {
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.direction0 {
+  color: blue;
+  padding: 15px 0;
+
+  @include when-width(992px) {
+    grid-column: 4 / 5;
+  }
+}
+
+.direction1 {
+  color: blue;
+  padding: 15px 0;
+
+  @include when-width(992px) {
+    grid-column: 5 / 6;
+  }
+}
+
+.link {
+  cursor: pointer;
+}

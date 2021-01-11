@@ -1,0 +1,105 @@
+@import "../mixins";
+
+.routes-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 30px;
+}
+
+.title {
+  font-size: 28px;
+
+  @include when-width(440px) {
+    font-size: 30px;
+  }
+  @include when-width(576px) {
+    font-size: 32px;
+  }
+  @include when-width(768px) {
+    font-size: 34px;
+  }
+  @include when-width(992px) {
+    font-size: 38px;
+  }
+}
+
+.content {
+  max-width: 900px;
+  margin-top: 10px;
+  padding-bottom: 30px;
+}
+
+.route-container {
+  margin-top: 30px;
+  text-align: left;
+  background-color: #f6f3f7;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+
+  @include when-width(768px) {
+    grid-template-columns: 200fr 150fr 130fr 175fr 175fr;
+  }
+}
+
+.route-item {
+  margin: 5px 10px;
+  white-space: nowrap;
+  font-size: 16px;
+  text-align: center;
+
+  @include when-width(768px) {
+    text-align: left;
+  }
+}
+
+.route-name {
+  font-weight: bold;
+  font-size: 18px;
+
+  @include when-width(768px) {
+    grid-column: 1 / 2;
+  }
+}
+
+.route-desc {
+
+  @include when-width(768px) {
+    grid-column: 2 / 3;
+  }
+}
+
+.route-type {
+
+  @include when-width(768px) {
+    grid-column: 3 / 4;
+  }
+}
+
+.direction-dest-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.destination {
+
+  @include when-width(768px) {
+    grid-column: 4 / 5;
+  }
+}
+
+.direction {
+  font-size: 15px;
+
+  @include when-width(768px) {
+    grid-column: 5 / 6;
+  }
+}
+
+.link {
+  cursor: pointer;
+}
